@@ -2,3 +2,4 @@ Calculadora simples para notas, com pesos de questões, pré-definições, notas
 
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/de0455ad-10dc-4ab3-a027-9a571967d8ec" />
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/7a4390a0-9195-4e06-b62a-10a10d7481fb" />
+Obs: 0.5 seria 50% do valor, 0.4 seria 40% e assim por diante.
