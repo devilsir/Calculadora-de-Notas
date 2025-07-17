@@ -1,0 +1,91 @@
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #f3e5f5;
+    color: black;
+  }
+  .container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 700px;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(106,13,173,0.3);
+  }
+  .tabs, .subtabs {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .tab, .subtab {
+    flex: 1;
+    padding: 10px;
+    background: #e1bee7;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #ce93d8;
+    color: #4a148c;
+  }
+  .tab.active, .subtab.active {
+    background: #6a0dad;
+    color: white;
+    font-weight: bold;
+  }
+  label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+    color: black;
+  }
+  input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ce93d8;
+    border-radius: 4px;
+    color: black;
+  }
+  button {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  button:hover {
+    background-color: #4a148c;
+  }
+  .result, .history {
+    margin-top: 20px;
+    padding: 10px;
+    background: #ede7f6;
+    border: 1px solid #b39ddb;
+    border-radius: 4px;
+    white-space: pre-line;
+    color: black;
+  }
+  .error {
+    background: #fce4ec;
+    border: 1px solid #f8bbd0;
+    color: #880e4f;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  th, td {
+    border: 1px solid #ce93d8;
+    padding: 8px;
+    text-align: center;
+    color: black;
+  }
+  th {
+    background: #e1bee7;
+    color: black;
+  }

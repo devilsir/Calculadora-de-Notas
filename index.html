@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Calculadora de Notas Avançada</title>
+<link rel="stylesheet" href="css/style.css">
+
+  <link rel="manifest" href="manifest.json">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+
+</head>
+<body>
+<div class="container">
+  <div class="tabs">
+    <div class="tab active" id="tabPadrao" onclick="mostrarAba('padrao')">Modelo Padrão</div>
+    <div class="tab" id="tabPersonalizado" onclick="mostrarAba('personalizado')">Modelo Personalizado</div>
+  </div>
+
+  <!-- Subabas Modelo Padrão -->
+  <div id="abaPadrao">
+    <div class="subtabs">
+      <div class="subtab active" id="subtabPadraoInstrucoes" onclick="mostrarSubaba('padrao','instrucoes')">Instruções e Histórico</div>
+      <div class="subtab" id="subtabPadraoCalculadora" onclick="mostrarSubaba('padrao','calculadora')">Calculadora</div>
+    </div>
+    <div id="conteudoPadraoInstrucoes">
+      <p><strong>Como usar:</strong><br>
+        Preencha os campos necessários na aba "Calculadora".<br>
+        Clique em "Calcular Nota" para ver o resultado.<br>
+        O histórico abaixo exibe as últimas notas calculadas.
+      </p>
+      <div id="historicoPadrao" class="history"></div>
+      <button onclick="exportarCSV('Padrao')">Exportar Histórico (Planilha)</button>
+    </div>
+    <div id="conteudoPadraoCalculadora" style="display:none;">
+      <!-- Seus campos da calculadora padrão -->
+      <!-- (não repetido aqui por brevidade, use seu mesmo bloco) -->
+      <label>Nome do aluno:</label>
+      <input type="text" id="nomeAlunoPadrao" placeholder="Digite o nome">
+      <label>Valor total da prova:</label>
+      <input type="number" id="notaTotalPadrao" value="100" min="1">
+      <label>Média mínima:</label>
+      <input type="number" id="mediaMinimaPadrao" value="60" min="0">
+      <label>Número total de questões:</label>
+      <input type="number" id="numQuestoesPadrao" value="10" min="1">
+      <label>Número de questões certas:</label>
+      <input type="number" id="acertosCompletosPadrao" value="0" min="0">
+      <label>Número de questões parcialmente certas:</label>
+      <input type="number" id="acertosParciaisPadrao" value="0" min="0">
+      <label>Peso das questões parcialmente certas:</label>
+      <input type="number" id="pesoParcialPadrao" value="0.5" min="0" max="1" step="0.01">
+      <button onclick="calcularPadrao()">Calcular Nota</button>
+      <button onclick="confirmarLimpeza('Padrao')">Limpar Histórico</button>
+      <div id="resultadoPadrao" class="result"></div>
+    </div>
+  </div>
+
+  <!-- Subabas Modelo Personalizado -->
+  <div id="abaPersonalizado" style="display:none;">
+    <div class="subtabs">
+      <div class="subtab active" id="subtabPersonalizadoInstrucoes" onclick="mostrarSubaba('personalizado','instrucoes')">Instruções e Histórico</div>
+      <div class="subtab" id="subtabPersonalizadoCalculadora" onclick="mostrarSubaba('personalizado','calculadora')">Calculadora</div>
+    </div>
+    <div id="conteudoPersonalizadoInstrucoes">
+      <p><strong>Como usar:</strong><br>
+        Primeiro, crie um modelo de prova na aba "Calculadora".<br>
+        Depois, selecione o modelo e marque o resultado de cada questão.<br>
+        O histórico abaixo exibe os últimos cálculos.
+      </p>
+      <div id="historicoPersonalizado" class="history"></div>
+      <button onclick="exportarCSV('Personalizado')">Exportar Histórico (Planilha)</button>
+     
+    </div>
+    <div id="conteudoPersonalizadoCalculadora" style="display:none;">
+      <!-- Campos calculadora personalizada -->
+      <label>Nome do modelo de prova:</label>
+      <input type="text" id="nomeProva">
+      <label>Número de questões:</label>
+      <input type="number" id="numQuestoesPersonalizado" min="1">
+      <label>Média mínima:</label>
+      <input type="number" id="mediaMinimaPersonalizado" value="60" min="0">
+      <label>Valor total da prova:</label>
+      <input type="number" id="valorTotalPersonalizado" value="100" min="1">
+      <label>Peso das questões parcialmente certas:</label>
+      <input type="number" id="pesoParcialPersonalizado" value="0.5" min="0" max="1" step="0.01">
+      <button onclick="criarModelo()">Criar Modelo</button>
+      <label>Modelos Salvos:</label>
+      <select id="modelosSalvos" onchange="carregarModelo()">
+        <option value="">Selecione</option>
+      </select>
+      <button onclick="excluirModelo()">Excluir Modelo Selecionado</button>
+      <div id="tabelaModelo"></div>
+      <label>Nome do aluno:</label>
+      <input type="text" id="nomeAlunoPersonalizado" placeholder="Digite o nome">
+      <button onclick="calcularPersonalizado()">Calcular Nota</button>
+      <button onclick="confirmarLimpeza('Personalizado')">Limpar Histórico</button>
+      <div id="resultadoPersonalizado" class="result"></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
